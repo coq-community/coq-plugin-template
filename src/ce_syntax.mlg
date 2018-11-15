@@ -1,0 +1,5 @@
+DECLARE PLUGIN "cexample_plugin"
+
+VERNAC COMMAND EXTEND CallToC CLASSIFIED AS QUERY
+| [ "CallC" ] -> { let i = Ce_api.callC () in Feedback.msg_info Pp.(int i) }
+END
