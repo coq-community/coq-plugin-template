@@ -17,7 +17,7 @@ more help.
 ## See also
 
 https://github.com/coq/coq/tree/master/doc/plugin_tutorial , which
-includes `dune` files for their ML part.
+already includes `dune` files for their ML part.
 
 ## How to build
 
@@ -41,11 +41,11 @@ will get a composed build, with some caveats:
 - you should run `make -f Makefile.dune voboot]`
 - you should call Coq's configure with the a correct install path
 
-this will be also greatly improved in the future.
+this will be improved soon so things work out of the box.
 
 ## Caveats
 
 - Coq's linker cannot track dependencies properly, thus YMMV when
   linking against 3rd party libs, see [Coq's issue](https://github.com/coq/coq/issues/7698)
-- coqdep emits some warnings that should be hard failures, treat them
-  as such.
+- `coqdep` emits some warnings that should be hard failures, we
+  recommend you treat them as such.

@@ -1,12 +1,29 @@
 (library
- (name example_plugin)
- (public_name my-plugin.plugin)
- (synopsis "Coq Template Plugin")
- (flags :standard -w -27)       ; CoqPP codes requires this
- (c_names ce_get)               ; we link our plugin with a C library!
- (libraries
-   coq.vernac                      ; needed for vernac extend
-   coq.plugins.ltac                ; needed only for tactic extend
+ (name example_plugin)              ; This is the name you will use in
+                                    ; Coq's `Declare ML Module`, and
+                                    ; the name of the main OCaml
+                                    ; module of your plugin.
+
+ (public_name my-plugin.plugin)     ; This makes the plugin
+                                    ; installable; recommended, must
+                                    ; match opam package name
+
+ (synopsis "Coq Template Plugin")   ; Synopsis, used in META generation
+
+ (flags :standard -rectypes -w -27) ; Coq requires the `-rectypes`
+                                    ; flag; CoqPP generated code
+                                    ; requires to disable warning 27
+                                    ; often.
+
+ (c_names ce_get)                   ; we link our plugin with a C
+                                    ; library! Optional of course.
+
+ (libraries                         ; ML Libraries we want to link
+                                    ; with, your choice here.
+
+   coq.vernac                       ; needed for vernac extend
+   coq.plugins.ltac                 ; needed for tactic extend
 ))
 
+; This will let Dune know about Coq's .mlg grammar files.
 (coq.pp (modules ce_syntax))

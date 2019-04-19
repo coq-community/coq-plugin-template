@@ -1,5 +1,15 @@
 (coq.theory
- (name MyPlugin)
- (public_name my-plugin.theory)
- (libraries my-plugin.plugin))
+ (name MyPlugin)                ; This will determine the toplevel
+                                ; module of your theory, modules will
+                                ; be MyPlugin.A, etc... when seen from
+                                ; outside.
 
+ (public_name my-plugin.theory) ; Adding this line will make your
+                                ; library installable
+
+ (libraries my-plugin.plugin))  ; Here you should declare the
+                                ; dependencies on the ML plugins your
+                                ; Coq files depend.
+
+; Other important fields are `modules` and `flags`, see Dune
+; documentation for more details.
