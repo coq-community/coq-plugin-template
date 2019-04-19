@@ -1,11 +1,12 @@
 (library
- (name cexample_plugin)
- (public_name cexample)
- (synopsis "Coq Example Plugin linking with C")
- (c_names ce_get)
- (libraries coq.stm))
+ (name example_plugin)
+ (public_name my-plugin.plugin)
+ (synopsis "Coq Template Plugin")
+ (flags :standard -w -27)       ; CoqPP codes requires this
+ (c_names ce_get)               ; we link our plugin with a C library!
+ (libraries
+   coq.vernac                      ; needed for vernac extend
+   coq.plugins.ltac                ; needed only for tactic extend
+))
 
-(rule
- (targets ce_syntax.ml)
- (deps (:pp-file ce_syntax.mlg) )
- (action (run coqpp %{pp-file})))
+(coq.pp (modules ce_syntax))

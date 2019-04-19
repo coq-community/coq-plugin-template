@@ -1,0 +1,5 @@
+(coq.theory
+ (name MyPlugin)
+ (public_name my-plugin.theory)
+ (libraries my-plugin.plugin))
+

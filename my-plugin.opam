@@ -1,0 +1,19 @@
+synopsis:     "Coq Plugin Template"
+description:  "Coq Plugin Template"
+name:         "my-plugin"
+opam-version: "2.0"
+maintainer:   "your@mail.org"
+authors:      "You Name"
+homepage:     "https://github.com/your-github/my-plugin"
+bug-reports:  "https://github.com/your-github/my-plugin"
+dev-repo:     "git+https://github.com/your-github/my-plugin"
+license:      "GPL 3"
+doc:          "https://your-github.github.io/my-plugin/doc"
+
+depends: [
+  "ocaml"         { >= "4.07.1"           }
+  "coq"           { >= "8.9.0" & < "8.10" }
+  "dune"          { build & >= "1.9.0"    }
+]
+
+build: [ "dune" "build" "-p" name "-j" jobs ]
