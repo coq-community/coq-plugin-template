@@ -9,4 +9,11 @@
    coq.plugins.ltac                ; needed only for tactic extend
 ))
 
-(coq.pp (modules ce_syntax))
+(rule
+ (targets ce_syntax.ml)
+ (deps (:pp-file ce_syntax.ml4) )
+ (action (bash "camlp5 pa_o.cmo pr_o.cmo %{lib:coq.grammar:grammar.cma} -loc loc -impl %{pp-file} -o %{targets}")))
+; camlp5 may need the following additional libs, YMMV
+; pa_op.cmo pr_dump.cmo pa_extend.cmo q_MLast.cmo pa_macro.cmo
+
+
