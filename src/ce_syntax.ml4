@@ -7,6 +7,10 @@ TACTIC EXTEND Hello
 | [ "hello" ] -> [ Ce_api.printHello ]
 END
 
+TACTIC EXTEND Smt
+| [ "smt" ] -> [ Ce_api.smt ]
+END
+
 VERNAC COMMAND EXTEND CallToC CLASSIFIED AS QUERY
 | [ "CallC" ] -> [ let i = Ce_api.callC () in Feedback.msg_warning Pp.(int i) ]
 END

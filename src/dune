@@ -7,6 +7,7 @@
  (libraries
    coq.vernac                      ; needed for vernac extend
    coq.plugins.ltac                ; needed only for tactic extend
+   z3
 ))
 
 (rule
