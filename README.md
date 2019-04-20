@@ -24,7 +24,7 @@ $ dune build
 to test
 
 ```
-$ dune exec -- coqtop -R MyPlugin _build/default/theories
+$ dune exec -- coqtop -R _build/default/theories MyPlugin
 ```
 
 ## Composing with Coq
