@@ -5,8 +5,7 @@ Hi all, this repository contains a template for writing a Coq plugin
 using the Dune build system. It showcases a few advanced features such
 as linking to C code.
 
-Note that the current version requires Dune 1.10 (or the `master`
-branch of Dune if you are reading this before 1.10 was released)
+Note that the current version requires Dune 1.10 
 
 See [Coq Dune documentation](https://dune.readthedocs.io/en/latest/coq.html) for
 more help.
