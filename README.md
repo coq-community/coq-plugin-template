@@ -6,8 +6,7 @@ using the Dune build system. It showcases a few advanced features such
 as linking to C code or to external libraries.
 
 The current version requires:
-- Dune 1.10 (or the `master` branch of Dune if you are reading this
-  before 1.10 was released)
+- Dune 1.10 
 - Coq 8.10 [the [v8.9 branch](https://github.com/ejgallego/coq-plugin-template/tree/v8.9)
   has a version that will work with Coq 8.9]
 
