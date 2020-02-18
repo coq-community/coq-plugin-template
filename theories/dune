@@ -4,8 +4,8 @@
                                 ; be MyPlugin.A, etc... when seen from
                                 ; outside.
 
- (public_name my-plugin.theory) ; Adding this line will make your
-                                ; library installable
+ (package my-plugin)            ; Adding this line will make your
+                                ; library installable in the package
 
  (libraries my-plugin.plugin))  ; Here you should declare the
                                 ; dependencies on the ML plugins your

@@ -15,15 +15,17 @@
                                     ; requires to disable warning 27
                                     ; often.
 
- (c_names ce_get)                   ; we link our plugin with a C
-                                    ; library! Optional of course.
+ (foreign_stubs                     ; we link our plugin with a C
+  (language c)                      ; library! Optional of course.
+  (names ce_get))
 
  (libraries                         ; ML Libraries we want to link
                                     ; with, your choice here.
 
    coq.vernac                       ; needed for vernac extend
    coq.plugins.ltac                 ; needed for tactic extend
-))
+ )
+)
 
 ; This will let Dune know about Coq's .mlg grammar files.
 (coq.pp (modules ce_syntax))
