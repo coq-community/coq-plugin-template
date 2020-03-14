@@ -5,13 +5,16 @@ Hi all, this repository contains a template for writing a Coq plugin
 using the Dune build system. It showcases a few advanced features such
 as linking to C code or to external libraries.
 
-The current version requires:
-- Dune 1.10 
-- Coq 8.10 [the [v8.9 branch](https://github.com/ejgallego/coq-plugin-template/tree/v8.9)
-  has a version that will work with Coq 8.9]
+The current version is tested with:
 
-See [Coq Dune documentation](https://dune.readthedocs.io/en/latest/coq.html) for
-more help.
+- Dune 2.4
+- Coq 8.11
+
+Minimal historical requirements are Coq 8.9 and Dune 1.10 , but they
+are not supported anymore. See template history / branches for
+changes at your own risk.
+
+See [Dune documentation](https://dune.readthedocs.io/en/latest/) for more help.
 
 ## See also
 
@@ -24,7 +27,7 @@ already includes `dune` files for their ML part.
 $ dune build
 ```
 
-and the rest of regular Dune commands, to test
+and the rest of regular Dune commands, to test your library, you can use
 
 ```
 $ dune exec -- coqtop -R _build/default/theories MyPlugin
@@ -32,12 +35,21 @@ $ dune exec -- coqtop -R _build/default/theories MyPlugin
 
 this will be improved soon.
 
+## Releasing OPAM packages
+
+You can use
+[`dune-release`](https://github.com/ocamllabs/dune-release) to
+automatically release Opam packages.
+
+For that, you need to update the include `.opam` file, and configure
+your Github tokens as described in the documentation of dune-release.
+
 ## Composing with Coq
 
-You can symlink the Coq >= 8.10 sources in your plugin tree and you
+You can symlink the Coq >= 8.11 sources in your plugin tree and you
 will get a composed build, with some caveats:
 
-- you should run `make -f Makefile.dune voboot]`
+- you should run `make -f Makefile.dune voboot`
 - you should call Coq's configure with the a correct install path
 
 this will be improved soon so things work out of the box.
