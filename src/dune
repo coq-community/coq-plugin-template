@@ -22,8 +22,8 @@
  (libraries                         ; ML Libraries we want to link
                                     ; with, your choice here.
 
-   coq.vernac                       ; needed for vernac extend
-   coq.plugins.ltac                 ; needed for tactic extend
+   coq-core.vernac                  ; needed for vernac extend
+   coq-core.plugins.ltac            ; needed for tactic extend
  )
 )
 
