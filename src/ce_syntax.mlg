@@ -1,4 +1,4 @@
-DECLARE PLUGIN "my_plugin"
+DECLARE PLUGIN "coq-my-plugin.plugin"
 
 {
 
