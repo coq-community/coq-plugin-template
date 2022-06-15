@@ -17,7 +17,7 @@ jobs:
       fail-fast: false
       matrix:
         ocaml-compiler: [4.09.x, 4.14.x]
-        coq-version: [v8.16+rc1]
+        coq-version: [8.16+rc1]
     env:
       NJOBS: "2"
       OPAMJOBS: "2"
@@ -37,7 +37,7 @@ jobs:
           eval $(opam env)
           opam repos add coq-released http://coq.inria.fr/opam/released
           opam repos add coq-core-dev http://coq.inria.fr/opam/core-dev
-          opam install ${{ coq-version }}
+          opam install coq.${{ matrix.coq-version }}
       - name: Display OPAM Setup
         run: |
           eval $(opam env)
