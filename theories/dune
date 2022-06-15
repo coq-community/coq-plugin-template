@@ -1,15 +1,15 @@
 (coq.theory
- (name MyPlugin)                ; This will determine the toplevel
-                                ; module of your theory, modules will
-                                ; be MyPlugin.A, etc... when seen from
-                                ; outside.
+ (name MyPlugin)                   ; This will determine the top-level Coq
+                                   ; module of your theory, modules will
+                                   ; be MyPlugin.A, etc., when seen from the
+                                   ; outside.
 
- (package my-plugin)            ; Adding this line will make your
-                                ; library installable in the package
+ (package coq-my-plugin)           ; Adding this line will make your
+                                   ; library installable in the opam package
 
- (libraries my-plugin.plugin))  ; Here you should declare the
-                                ; dependencies on the ML plugins your
-                                ; Coq files depend.
+ (libraries coq-my-plugin.plugin)) ; Here you should declare all
+                                   ; OCaml plugin dependencies
+                                   ; for your Coq files.
 
 ; Other important fields are `modules` and `flags`, see Dune
 ; documentation for more details.

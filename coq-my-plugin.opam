@@ -1,0 +1,31 @@
+opam-version: "2.0"
+maintainer: "you@example.com"
+
+homepage: "https://github.com/your-github/my-plugin"
+dev-repo: "git+https://github.com/your-github/my-plugin.git"
+bug-reports: "https://github.com/your-github/my-plugin/issues"
+doc: "https://your-github.github.io/my-plugin"
+license: "MIT"
+
+synopsis: "One line description of your plugin"
+description: """
+Longer description of what your plugin does that can
+cover multiple lines. Including punctuation."""
+
+build: ["dune" "build" "-p" name "-j" jobs]
+depends: [
+  "ocaml" {>= "4.07.1"}
+  "dune" {>= "2.5"}
+  "coq" {>= "8.14" & < "8.15"}
+]
+
+tags: [
+  "category:Miscellaneous/Coq Extensions"
+  "keyword:your keyword"
+  "logpath:MyPlugin"
+]
+
+authors: [
+  "Your Name"
+  "Another Optional Name"
+]

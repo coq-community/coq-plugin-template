@@ -1,8 +1,7 @@
-DECLARE PLUGIN "example_plugin"
+DECLARE PLUGIN "my_plugin"
 
 {
 
-(* This should not be needed, fix in Coq! *)
 open Ltac_plugin
 
 }

@@ -1,14 +1,14 @@
 (library
- (name example_plugin)              ; This is the name you will use in
+ (name my_plugin)                   ; This is the name you will use in
                                     ; Coq's `Declare ML Module`, and
                                     ; the name of the main OCaml
                                     ; module of your plugin.
 
- (public_name my-plugin.plugin)     ; This makes the plugin
+ (public_name coq-my-plugin.plugin) ; This makes the plugin
                                     ; installable; recommended, must
-                                    ; match opam package name
+                                    ; match opam package name.
 
- (synopsis "Coq Template Plugin")   ; Synopsis, used in META generation
+ (synopsis "My Coq plugin")         ; Synopsis, used in META generation.
 
  (flags :standard -rectypes -w -27) ; Coq requires the `-rectypes`
                                     ; flag; CoqPP generated code
@@ -16,14 +16,14 @@
                                     ; often.
 
  (foreign_stubs                     ; we link our plugin with a C
-  (language c)                      ; library! Optional of course.
+  (language c)                      ; library! Optional, of course.
   (names ce_get))
 
- (libraries                         ; ML Libraries we want to link
+ (libraries                         ; OCaml Libraries we want to link
                                     ; with, your choice here.
 
-   coq.vernac                       ; needed for vernac extend
-   coq.plugins.ltac                 ; needed for tactic extend
+   coq-core.vernac                  ; Needed for vernac extend.
+   coq-core.plugins.ltac            ; Needed for tactic extend.
  )
 )
 
