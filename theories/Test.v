@@ -1,4 +1,4 @@
-Declare ML Module "my_plugin".
+Require Import MyPlugin.
 
 CallC.
 

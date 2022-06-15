@@ -13,4 +13,4 @@ let msg_in_tactic str : unit PV.tactic =
 let printHello : unit PV.tactic =
   let open PV.Notations in
   msg_in_tactic "hello" >>= fun () ->
-  Tacticals.New.tclIDTAC
+  Tacticals.tclIDTAC
