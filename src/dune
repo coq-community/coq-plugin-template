@@ -10,18 +10,14 @@
 
  (synopsis "My Coq plugin")         ; Synopsis, used in META generation.
 
- (flags :standard -rectypes -w -27) ; Coq requires the `-rectypes`
-                                    ; flag; CoqPP generated code
-                                    ; requires to disable warning 27
-                                    ; often.
+ (flags :standard -w -27)           ; CoqPP generated code requires to
+                                    ; disable warning 27 often.
 
- (foreign_stubs                     ; we link our plugin with a C
+ (foreign_stubs                     ; We link our plugin with a C
   (language c)                      ; library! Optional, of course.
   (names ce_get))
 
- (libraries                         ; OCaml Libraries we want to link
-                                    ; with, your choice here.
-
+ (libraries                         ; OCaml libraries we want to link with
    coq-core.vernac                  ; Needed for vernac extend.
    coq-core.plugins.ltac            ; Needed for tactic extend.
  )

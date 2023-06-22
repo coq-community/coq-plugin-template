@@ -5,7 +5,7 @@ homepage: "https://github.com/your-github/my-plugin"
 dev-repo: "git+https://github.com/your-github/my-plugin.git"
 bug-reports: "https://github.com/your-github/my-plugin/issues"
 doc: "https://your-github.github.io/my-plugin"
-license: "MIT"
+license: "SPDX-identifier-for-your-license"
 
 synopsis: "One line description of your plugin"
 description: """
@@ -14,9 +14,9 @@ cover multiple lines. Including punctuation."""
 
 build: ["dune" "build" "-p" name "-j" jobs]
 depends: [
-  "ocaml" {>= "4.07.1"}
-  "dune" {>= "2.5"}
-  "coq" {>= "8.14" & < "8.15"}
+  "ocaml" {>= "4.09.0"}
+  "dune" {>= "3.8.2"}
+  "coq" {>= "8.17"}
 ]
 
 tags: [
