@@ -1,48 +1,29 @@
-name: CI
+name: Docker CI
 
 on:
   push:
     branches:
-    - v8.16
+      - 'v8.17+0.8'
   pull_request:
     branches:
-    - v8.16
-
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+      - '**'
 
 jobs:
   build:
-    strategy:
-      fail-fast: false
-      matrix:
-        ocaml-compiler: [4.09.x, 4.14.x]
-        coq-version: [8.16+rc1]
-    env:
-      NJOBS: "2"
-      OPAMJOBS: "2"
-      OPAMROOTISOK: "true"
-      OPAMYES: "true"
+    # the OS must be GNU/Linux to be able to use the docker-coq-action
     runs-on: ubuntu-latest
-
+    strategy:
+      matrix:
+        image:
+          - 'coqorg/coq:8.17'
+      fail-fast: false
     steps:
-      - uses: actions/checkout@v2
-      - name: Set up OCaml ${{ matrix.ocaml-compiler }}
-        uses: avsm/setup-ocaml@v2
+      - uses: actions/checkout@v3
+      - uses: coq-community/docker-coq-action@v1
         with:
-          ocaml-compiler: ${{ matrix.ocaml-compiler }}
-          dune-cache: true
-      - name: Install Coq
-        run: |
-          eval $(opam env)
-          opam repos add coq-released http://coq.inria.fr/opam/released
-          opam repos add coq-core-dev http://coq.inria.fr/opam/core-dev
-          opam install coq.${{ matrix.coq-version }}
-      - name: Display OPAM Setup
-        run: |
-          eval $(opam env)
-          opam list
-      - name: Test Template
-        run: |
-          eval $(opam env)
-          dune build --display=short
+          opam_file: 'coq-my-plugin.opam'
+          custom_image: ${{ matrix.image }}
+          before_install: |
+            startGroup "Print opam config and unpin dune"
+              opam config list; opam repo list; opam list; opam pin remove dune -y
+            endGroup
