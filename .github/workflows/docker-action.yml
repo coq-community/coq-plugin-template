@@ -15,7 +15,8 @@ jobs:
     strategy:
       matrix:
         image:
-          - 'coqorg/coq:8.17'
+          - 'coqorg/coq:dev-ocaml-4.14-flambda'
+          - 'coqorg/coq:8.17.1-ocaml-4.09.1-flambda'
       fail-fast: false
     steps:
       - uses: actions/checkout@v3
@@ -23,7 +24,7 @@ jobs:
         with:
           opam_file: 'coq-my-plugin.opam'
           custom_image: ${{ matrix.image }}
-          before_install: |
-            startGroup "Print opam config and unpin dune"
-              opam config list; opam repo list; opam list; opam pin remove dune -y
-            endGroup
+
+# See also:
+# https://github.com/coq-community/docker-coq-action#readme
+# https://github.com/erikmd/docker-coq-github-action-demo
