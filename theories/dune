@@ -7,7 +7,7 @@
  (package coq-my-plugin)           ; Adding this line will make your
                                    ; library installable in the opam package
 
- (libraries coq-my-plugin.plugin)) ; Here you should declare all
+ (plugins coq-my-plugin.plugin)) ; Here you should declare all
                                    ; OCaml plugin dependencies
                                    ; for your Coq files.
 
